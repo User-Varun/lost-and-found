@@ -11,7 +11,7 @@ import SignUpForm from "./pages/SignUpPage";
 import LoginForm from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./utilites/protectRoute";
-import ReportForm from "./components/reportForm";
+// import ReportForm from "./components/reportForm";
 
 function App() {
   return (
