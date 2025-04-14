@@ -74,18 +74,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div
-      className={styles.signupPage}
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "whitesmoke",
-        textAlign: "center",
-        fontFamily: "Arial, sans-serif",
-        minHeight: "100vh",
-      }}
-    >
+    <div className="flex items-center justify-center text-center bg-white min-h-screen font-(family-name:Arial, sans-serif)">
       <div className="container" style={{ width: "400px" }}>
         <form className="registration-form" onSubmit={handleSubmit}>
           <h1 style={{ color: "purple" }}>Sign Up</h1>

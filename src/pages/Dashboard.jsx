@@ -50,7 +50,7 @@ const Dashboard = () => {
           <h1 style={{ fontFamily: "oblique" }}>LostNFound</h1>
         </div>
         <div className={styles.headerActions}>
-          <p style={{ color: "white" }}>{studentName}</p>
+          <p className="bg-white-500">{studentName}</p>
           <p style={{ color: "white" }}>{studentEmail}</p>
 
           <LogoutButton />
