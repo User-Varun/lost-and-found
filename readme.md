@@ -1,12 +1,115 @@
-# React + Vite
+## 📦 Lost & Found Platform for Colleges
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack MERN application that allows college students to post and find lost or found items. Each item is associated with a specific college. The system also includes features for user authentication, image uploads, and organized API routes.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Frontend: React.js
 
-## Expanding the ESLint configuration
+Backend: Node.js, Express.js
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Database: MongoDB (via Mongoose)
+
+Authentication: JWT (JSON Web Tokens)
+
+Image Storage: Cloudinary
+
+## 📊 Architecture Diagram
+
+![Architecture Diagram](./architecture-diagram.png)
+
+## 🧩 Features
+
+Student signup/login with JWT auth
+
+Post lost/found items with image uploads
+
+View all items by filter: all / lost / found
+
+View and manage your own items
+
+Cloud image storage
+
+## 📁 Folder Structure
+
+/client
+/components
+/pages
+/utils
+
+/server
+/controllers
+authController.js
+itemController.js
+studentController.js
+collegeController.js
+/models
+itemModel.js
+matchModel.js
+notificationModel.js
+studentModel.js
+collegeModel.js
+/routes
+itemRoutes.js
+studentRoutes.js
+collegeRoutes.js
+/middlewares
+auth.js
+errorHandler.js
+/utils
+catchAsync.js
+AppError.js
+
+## 🔗 API Endpoints Summary (from ROUTES.md)
+
+## 👤 Student Routes
+
+POST /api/students/signup — Register student
+
+POST /api/students/login — Login and get JWT token
+
+## 🎓 College Routes
+
+POST /api/colleges — Create college
+
+GET /api/colleges — Get all colleges
+
+## 📦 Item Routes
+
+POST /api/items — Create item (auth)
+
+GET /api/items — Get all items (auth)
+
+GET /api/items/myItems — Get items posted by logged-in user
+
+GET /api/items/:id — Get item by ID
+
+PATCH /api/items/:id — Update item
+
+DELETE /api/items/:id — Delete item
+
+## 🛠️ Setup Instructions
+
+Clone the repo
+
+Set up .env file with MongoDB URI, JWT secret, Cloudinary keys
+
+Run backend:
+
+cd server
+npm install
+npm run dev
+
+Run frontend:
+
+cd client
+npm install
+npm start
+
+📸 Screenshots
+
+(Add screenshots of UI once ready)
+
+📜 License
+
+MIT
