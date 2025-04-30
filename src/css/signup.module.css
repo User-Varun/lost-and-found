@@ -41,11 +41,6 @@
   gap: 15px; /* Spacing between form elements */
 }
 
-h1 {
-  margin-bottom: 20px;
-  color: white;
-}
-
 input {
   width: 100%;
   padding: 10px;
@@ -71,19 +66,19 @@ button:hover {
   background: #2575fc;
 }
 
-p {
+/* p {
   color: white;
   text-align: center;
-}
+} */
 
 a {
   color: #6a11cb;
   text-decoration: none;
 }
 
-a:hover {
+/* a:hover {
   text-decoration: underline;
-}
+} */
 
 .habit-group {
   display: flex;

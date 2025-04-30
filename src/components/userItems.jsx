@@ -62,37 +62,42 @@ const UserItems = ({ filter }) => {
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             padding: "15px",
             backgroundColor: "#fff",
+            color: "black",
           }}
         >
           <h3 style={{ marginBottom: "10px" }}>{item.itemName}</h3>
-          <p>
-            <strong>Type:</strong> {item.itemType}
-          </p>
-          <p>
-            <strong>Description:</strong> {item.description}
-          </p>
-          <p>
-            <strong>Date:</strong> {item.date || "Not provided"}
-          </p>
-          <p>
-            <strong>Location:</strong> {item.location || "Not provided"}
-          </p>
-          <p>
-            <strong>Contact Info:</strong> {item.contactInfo || "Not provided"}
-          </p>
-          {item.itemImages && item.itemImages.length > 0 && (
-            <img
-              src={item.itemImages[0].url}
-              alt={item.itemName}
-              style={{
-                width: "100%",
-                height: "150px",
-                objectFit: "cover",
-                borderRadius: "5px",
-                marginTop: "10px",
-              }}
-            />
-          )}
+
+          <img
+            src={item.itemImages.url}
+            alt={item.itemName}
+            style={{
+              width: "100%",
+              height: "150px",
+              objectFit: "cover",
+              borderRadius: "5px",
+              padding: "17px",
+            }}
+          />
+
+          <div className="flex flex-col items-start text-black gap-[1rem]">
+            <p className="text-inherit">
+              <strong>Type:</strong> {item.itemType}
+            </p>
+            <p className="text-inherit flex flex-wrap">
+              <strong>Description:</strong> {item.description}
+            </p>
+
+            <p className="text-inherit">
+              <strong>Date:</strong> {item.date || "Not provided"}
+            </p>
+            <p className="text-inherit">
+              <strong>Location:</strong> {item.location || "Not provided"}
+            </p>
+            <p className="text-inherit">
+              <strong>Contact Info:</strong>{" "}
+              {item.contactInfo || "Not provided"}
+            </p>
+          </div>
         </div>
       ))}
     </div>

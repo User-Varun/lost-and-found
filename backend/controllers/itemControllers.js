@@ -2,6 +2,24 @@ const Item = require("../models/itemModel");
 const catchAsync = require("../utills/catchAsync");
 const QRCode = require("qrcode");
 
+exports.uploadImage = catchAsync(async (req, res) => {
+  try {
+    console.log(req.file.path);
+
+    const result = await cloudinary.uploader.upload(req.file.path);
+
+    console.log(result);
+
+    res.json({ message: "File uploaded successfully", url: result.secure_url });
+  } catch (error) {
+    console.log(error);
+
+    res
+      .status(500)
+      .json({ error: "File upload failed", details: error.message });
+  }
+});
+
 exports.createItem = catchAsync(async (req, res) => {
   const {
     itemType,

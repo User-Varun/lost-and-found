@@ -14,25 +14,7 @@ const studentRouter = require("./routes/studentRoutes");
 const collegeRouter = require("./routes/collegeRoutes");
 const itemRouter = require("./routes/itemRoutes");
 
-// app.post("/api/v1/upload", upload.single("image"), async (req, res) => {
-//   try {
-//     console.log(req.file.path);
-
-//     const result = await cloudinary.uploader.upload(req.file.path);
-
-//     console.log(result);
-
-//     res.json({ message: "File uploaded successfully", url: result.secure_url });
-//   } catch (error) {
-//     console.log(error);
-
-//     res
-//       .status(500)
-//       .json({ error: "File upload failed", details: error.message });
-//   }
-// });
-
-// // middlewares will go here
+//  middlewares will go here
 // body parser middleware
 app.use(express.json());
 // cors enable middleware

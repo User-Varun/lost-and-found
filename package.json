@@ -12,6 +12,7 @@
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\""
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.1",
     "@svgr/plugin-svgo": "^8.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
