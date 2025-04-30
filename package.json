@@ -7,8 +7,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start:frontend": "vite",
-    "start:backend": "nodemon backend/server.js",
-    "start:backendProd": "set NODE_ENV=production&&nodemon server.js",
+    "start:backend": "node backend/server.js",
+    "start:backendProd": "set NODE_ENV=production&&server.js",
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\""
   },
   "dependencies": {

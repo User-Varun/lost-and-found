@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import api from "../api/axios";
 
 export default function CreatePostPage() {
   const [formData, setFormData] = useState({
@@ -34,7 +35,7 @@ export default function CreatePostPage() {
     formData.append("file", file);
     formData.append("upload_preset", uploadPreset);
 
-    const res = await axios.post(
+    const res = await api.post(
       `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
       formData
     );
@@ -70,7 +71,7 @@ export default function CreatePostPage() {
       };
 
       // Send all form data + uploaded image info to backend
-      const response = await axios.post(
+      const response = await api.post(
         "http://127.0.0.1:9000/api/v1/items",
         postData,
         {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 
 const UserItems = ({ filter }) => {
   const [userItems, setUserItems] = useState([]);
@@ -9,7 +9,7 @@ const UserItems = ({ filter }) => {
   useEffect(() => {
     const fetchUserItems = async () => {
       try {
-        const response = await axios.get("http://localhost:9000/api/v1/items", {
+        const response = await api.get("http://localhost:9000/api/v1/items", {
           headers: {
             Authorization: `Bearer ${
               document.cookie
@@ -73,7 +73,7 @@ const UserItems = ({ filter }) => {
             style={{
               width: "100%",
               height: "150px",
-              objectFit: "cover",
+              objectFit: "contain",
               borderRadius: "5px",
               padding: "17px",
             }}
@@ -90,7 +90,7 @@ const UserItems = ({ filter }) => {
             <p className="text-inherit">
               <strong>Date:</strong> {item.date || "Not provided"}
             </p>
-            <p className="text-inherit">
+            <p className="text-inherit flex flex-wrap">
               <strong>Location:</strong> {item.location || "Not provided"}
             </p>
             <p className="text-inherit">

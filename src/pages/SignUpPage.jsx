@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../css/signup.module.css"; // Import the CSS file
 import { Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
+import api from "../api/axios";
 
 // import LoginForm from "./LoginPage";
 
@@ -25,9 +25,7 @@ const SignUpForm = () => {
     // Fetch colleges from the backend
     const fetchColleges = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:9000/api/v1/colleges"
-        );
+        const response = await api.get("http://localhost:9000/api/v1/colleges");
         setColleges(response.data.data.colleges); // Set the fetched colleges
       } catch (error) {
         console.error("Error fetching colleges:", error);
@@ -53,7 +51,7 @@ const SignUpForm = () => {
     }
 
     try {
-      const response = await axios.post(
+      const response = await api.post(
         "http://localhost:9000/api/v1/students/signup",
         formData
       );

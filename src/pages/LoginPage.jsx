@@ -2,7 +2,7 @@ import "../index.css";
 
 import React from "react";
 import { useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import { useNavigate, Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
@@ -21,10 +21,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:9000/api/v1/students/login",
-        formData
-      );
+      const response = await api.post("/api/v1/students/login", formData);
       if (response.status === 200) {
         setStatusMessage("Login successful!");
         console.log("Success:", response.data);
