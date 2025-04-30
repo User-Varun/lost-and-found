@@ -9,7 +9,7 @@ const UserItems = ({ filter }) => {
   useEffect(() => {
     const fetchUserItems = async () => {
       try {
-        const response = await api.get("http://localhost:9000/api/v1/items", {
+        const response = await api.get("/api/v1/items", {
           headers: {
             Authorization: `Bearer ${
               document.cookie

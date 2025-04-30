@@ -35,7 +35,7 @@ export default function CreatePostPage() {
     formData.append("file", file);
     formData.append("upload_preset", uploadPreset);
 
-    const res = await api.post(
+    const res = await axios.post(
       `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
       formData
     );
@@ -71,15 +71,11 @@ export default function CreatePostPage() {
       };
 
       // Send all form data + uploaded image info to backend
-      const response = await api.post(
-        "http://127.0.0.1:9000/api/v1/items",
-        postData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await api.post("/api/v1/items", postData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       console.log("Post successfully created", response);
       alert("Post created successfully!");
