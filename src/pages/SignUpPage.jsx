@@ -25,7 +25,7 @@ const SignUpForm = () => {
     // Fetch colleges from the backend
     const fetchColleges = async () => {
       try {
-        const response = await api.get("http://localhost:9000/api/v1/colleges");
+        const response = await api.get("/api/v1/colleges");
         setColleges(response.data.data.colleges); // Set the fetched colleges
       } catch (error) {
         console.error("Error fetching colleges:", error);
@@ -51,10 +51,7 @@ const SignUpForm = () => {
     }
 
     try {
-      const response = await api.post(
-        "http://localhost:9000/api/v1/students/signup",
-        formData
-      );
+      const response = await api.post("/api/v1/students/signup", formData);
 
       if (response.status === 201) {
         setStatusMessage("Signup successful!");
