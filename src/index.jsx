@@ -1,3 +1,5 @@
+import "./index.css"; // or './tailwind.css'
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {
@@ -11,7 +13,7 @@ import SignUpForm from "./pages/SignUpPage";
 import LoginForm from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./utilites/protectRoute";
-// import ReportForm from "./components/reportForm";
+import CreatePostPage from "./pages/CreatePostPage";
 
 function App() {
   return (
@@ -27,6 +29,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        ></Route>
+
+        <Route
+          path="/create-post"
+          element={
+            <ProtectedRoute>
+              <CreatePostPage />
             </ProtectedRoute>
           }
         ></Route>

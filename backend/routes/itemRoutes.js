@@ -6,6 +6,11 @@ const Router = express.Router();
 const itemControllers = require("../controllers/itemControllers");
 const authControllers = require("../controllers/authControllers");
 
+Router.route("/upload").post(
+  authControllers.protect,
+  itemControllers.uploadImage
+);
+
 Router.route("/")
   .post(authControllers.protect, itemControllers.createItem)
   .get(authControllers.protect, itemControllers.getAllItems);

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const itemSchema = new mongoose.Schema({
   itemType: {
     type: String,
-    enum: ["lost", "found"],
+    enum: ["Lost", "Found"],
     required: [true, "A Item must have a type"],
   },
 
@@ -24,23 +24,26 @@ const itemSchema = new mongoose.Schema({
     default: "Not given",
   },
 
+  contactInfo: {
+    type: String,
+    default: "Not Given",
+  },
+
   userId: {
     type: mongoose.Schema.Types.ObjectId, // Reference to the user who reported the item
     ref: "Student",
     required: [true, "Item must belong to a user"],
   },
-  itemImages: [
-    {
-      public_id: {
-        type: String, // Cloudinary public ID for managing the image
-        required: true,
-      },
-      url: {
-        type: String, // URL of the image stored in Cloudinary
-        required: true,
-      },
+  itemImages: {
+    public_id: {
+      type: String, // Cloudinary public ID for managing the image
+      required: true,
     },
-  ],
+    url: {
+      type: String, // URL of the image stored in Cloudinary
+      required: true,
+    },
+  },
 
   collegeId: {
     type: mongoose.Schema.Types.ObjectId, // Reference to the college

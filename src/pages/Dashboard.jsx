@@ -1,8 +1,28 @@
+import "../index.css";
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import styles from "../css/dashboard.module.css";
 import UserItems from "../components/userItems"; // Import the UserItems component
+
+import SortButton from "../components/SortButton";
+
+function CreatePostButton() {
+  const navigate = useNavigate();
+
+  const handleCreatePost = () => {
+    console.log("handler");
+
+    navigate("/create-post");
+  };
+
+  return (
+    <button className="text-[#fff] w-auto" onClick={handleCreatePost}>
+      Create Post
+    </button>
+  );
+}
 
 function LogoutButton() {
   const navigate = useNavigate();
@@ -15,99 +35,44 @@ function LogoutButton() {
     navigate("/login");
   };
 
-  return (
-    <button
-      onClick={handleLogout}
-      style={{
-        padding: "8px 12px",
-        backgroundColor: "rgb(168 170 173)",
-        color: "white",
-        border: "none",
-        borderRadius: "5px",
-        cursor: "pointer",
-        marginTop: "2px",
-      }}
-    >
-      Logout
-    </button>
-  );
+  return <button onClick={handleLogout}>Logout</button>;
 }
 
 const Dashboard = () => {
-  const [filter, setFilter] = useState("all"); // State to track the selected filter
-  const studentName = Cookies.get("name");
-  const studentEmail = Cookies.get("email");
+  // State to track the selected filter
+  const [filter, setFilter] = useState("all");
 
-  if (!studentName || !studentEmail) {
+  const studentName = Cookies.get("name");
+
+  if (!studentName) {
     throw new Error("Cannot get the info from db");
   }
 
   return (
     <div className={styles.dashboard}>
       {/* Fixed Header */}
-      <header className={styles.dashboardHeader}>
-        <div className={styles.logo}>
-          <h1 style={{ fontFamily: "oblique" }}>LostNFound</h1>
+      <nav className="flex justify-between bg-[#a1d3ff] items-center pt-[0.4rem] pb-[0.4rem] pr-[2rem] pl-[2rem] text-black">
+        <h1 className="font-bold">Lost&Found</h1>
+        <CreatePostButton />
+        <div className="flex gap-[2rem] items-center ">
+          <p className="min-w-[5.6rem] text-black font-[600]">{studentName}</p>
+          <LogoutButton className="w-[5rem] py-[10px] rounded-md"></LogoutButton>
         </div>
-        <div className={styles.headerActions}>
-          <p style={{ color: "white" }}>{studentName}</p>
-          <p style={{ color: "white" }}>{studentEmail}</p>
-
-          <LogoutButton />
-        </div>
-      </header>
+      </nav>
 
       {/* Filter Section */}
-      <div
-        style={{
-          padding: "10px",
-          textAlign: "center",
-          backgroundColor: "#f8f9fa",
-          marginTop: "5rem",
-        }}
-      >
-        <button
-          onClick={() => setFilter("all")}
-          style={{
-            padding: "8px 12px",
-            margin: "5px",
-            backgroundColor: filter === "all" ? "purple" : "#ddd",
-            color: filter === "all" ? "white" : "black",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          All
-        </button>
-        <button
-          onClick={() => setFilter("lost")}
-          style={{
-            padding: "8px 12px",
-            margin: "5px",
-            backgroundColor: filter === "lost" ? "purple" : "#ddd",
-            color: filter === "lost" ? "white" : "black",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
+      <div className="flex text-center p-[10px] bg-[#f8f9fa] items-center">
+        <p className="text-[#000] min-w-[5rem]">Sort by</p>
+
+        <SortButton currentFilter={filter} setFilter={setFilter}>
+          all
+        </SortButton>
+        <SortButton currentFilter={filter} setFilter={setFilter}>
           Lost
-        </button>
-        <button
-          onClick={() => setFilter("found")}
-          style={{
-            padding: "8px 12px",
-            margin: "5px",
-            backgroundColor: filter === "found" ? "purple" : "#ddd",
-            color: filter === "found" ? "white" : "black",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
+        </SortButton>
+        <SortButton currentFilter={filter} setFilter={setFilter}>
           Found
-        </button>
+        </SortButton>
       </div>
 
       {/* Main Content */}

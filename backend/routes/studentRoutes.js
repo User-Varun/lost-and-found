@@ -2,7 +2,6 @@ const express = require("express");
 const Router = express.Router();
 
 // Controllers
-const studentControllers = require("../controllers/studentControllers");
 const authControllers = require("../controllers/authControllers");
 
 Router.post("/signup", authControllers.signup);

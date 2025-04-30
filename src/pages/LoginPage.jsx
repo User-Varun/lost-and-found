@@ -1,3 +1,5 @@
+import "../index.css";
+
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
@@ -38,16 +40,9 @@ const LoginForm = () => {
 
   return (
     <div
-      className="login-page"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        textAlign: "center",
-        backgroundColor: "whitesmoke",
-        minHeight: "100vh",
-        justifyContent: "center",
-      }}
+      // className="login-page"
+
+      className="flex  flex-col items-center text-center bg-white min-h-screen justify-center"
     >
       <h1 style={{ color: "purple" }}>Login</h1>
       <form onSubmit={handleSubmit}>
