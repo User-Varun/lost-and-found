@@ -1,9 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const cloudinary = require("./cloudinary");
-const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
 const AppError = require("./utills/AppError");
 const globalErrorHandler = require("./controllers/errorControllers");
 
@@ -15,10 +12,17 @@ const collegeRouter = require("./routes/collegeRoutes");
 const itemRouter = require("./routes/itemRoutes");
 
 //  middlewares will go here
+
+// Allow frontend URL
+app.use(
+  cors({
+    origin: "https://lost-and-found-livid.vercel.app", // Your Vercel frontend URL
+    credentials: true, // if you use cookies / auth headers (optional, but recommended)
+  })
+);
+
 // body parser middleware
 app.use(express.json());
-// cors enable middleware
-app.use(cors());
 
 // routes will go here
 app.use("/api/v1/students", studentRouter);
