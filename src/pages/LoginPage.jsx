@@ -21,10 +21,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post(
-        "http://localhost:9000/api/v1/students/login",
-        formData
-      );
+      const response = await api.post("/api/v1/students/login", formData);
       if (response.status === 200) {
         setStatusMessage("Login successful!");
         console.log("Success:", response.data);
