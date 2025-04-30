@@ -4,11 +4,9 @@
   "version": "0.0.0",
   "scripts": {
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
     "start:frontend": "vite",
-    "start:backend": "node server.js",
-    "start:backendProd": "set NODE_ENV=production&&server.js"
+    "start:backend": "cd backend &&set NODE_ENV=production&&node server.js",
+    "start:backendProd": "&&server.js"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.1",
