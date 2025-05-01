@@ -35,7 +35,11 @@ function LogoutButton() {
     navigate("/login");
   };
 
-  return <button onClick={handleLogout}>Logout</button>;
+  return (
+    <button onClick={handleLogout} className="w-[5rem] py-[10px] rounded-md">
+      Logout
+    </button>
+  );
 }
 
 const Dashboard = () => {
@@ -49,14 +53,16 @@ const Dashboard = () => {
   }
 
   return (
-    <div className={styles.dashboard}>
+    <div className="flex flex-col h-screen font-[Arial, sans-serif] ">
       {/* Fixed Header */}
       <nav className="flex justify-between bg-[#a1d3ff] items-center pt-[0.4rem] pb-[0.4rem] pr-[2rem] pl-[2rem] text-black">
-        <h1 className="font-bold">Lost&Found</h1>
+        <h1 className="show-on-large font-bold text-black">Lost&Found</h1>
         <CreatePostButton />
         <div className="flex gap-[2rem] items-center ">
-          <p className="min-w-[5.6rem] text-black font-[600]">{studentName}</p>
-          <LogoutButton className="w-[5rem] py-[10px] rounded-md"></LogoutButton>
+          <p className=" show-on-large  min-w-[5.6rem] text-black font-[600] ">
+            {studentName}
+          </p>
+          <LogoutButton></LogoutButton>
         </div>
       </nav>
 
