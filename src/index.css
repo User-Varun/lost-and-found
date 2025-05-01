@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+body {
   color: #494949;
   font-family: system-ui;
+}
+
+/* Utility class to hide by default and show on large screens */
+.show-on-large {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .show-on-large {
+    display: block;
+  }
 }
